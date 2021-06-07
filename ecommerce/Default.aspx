@@ -12,7 +12,7 @@
     <table class="auto-style1">
         <tr style="background-color:#5f98f3">
             <td>
-                <asp:Label ID="Label4" runat="server" Text="Label" Font-Bold="True" Font-Italic="True" Font-Names="Bahnschrift SemiBold"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Italic="True" Font-Names="Bahnschrift SemiBold"></asp:Label>
                 <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Arial Rounded MT Bold" NavigateUrl="~/login.aspx">Login to continue</asp:HyperLink>
                 <asp:Button ID="Button1" runat="server" Text="Log Out" BackColor="#FF5050" BorderColor="White" Font-Bold="True" Font-Names="Comic Sans MS" ForeColor="Aqua" Height="27px" Width="105px" />
             </td>
