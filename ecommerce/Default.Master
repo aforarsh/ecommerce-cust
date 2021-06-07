@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.Master.cs" Inherits="ecommerce.Site1" %>
+
+<!DOCTYPE html>
+
+
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style=" background-image: url('../img/bg.jpg');">
+    <form id="form1" runat="server">
+        <div>
+            <table style="margin:0 auto;" class="auto-style1" >
+                <tr style="width:1100px; height:50px; border-color:#7FFFD4; background-color:White; ">
+                    <td style="width: 120px">
+                        <asp:Image ID="Image1" runat="server" Height="151px" ImageUrl="~/img/log.jpg" Width="194px" /></td>
+                    <td style="width: 700px" align="center">
+                        <asp:Label ID="Label1" runat="server" Text="ZHR COMPUTER & NETWORK " Font-Bold="False" Font-Names="Copperplate Gothic Bold" ForeColor="RoyalBlue" Font-Size="Large"></asp:Label>
+                        <br />
+                        <b>One Stop Computer Accessories</b>
+                    </td>
+                    <td>
+                        <asp:Image ID="Image2" runat="server" Height="151px" ImageUrl="~/img/log.jpg" Width="194px" /></td>
+                </tr>
+                <tr style="background-color:#B8860B">
+                    <td colspan="3";>
+                        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticSubMenuIndent="19px">
+                            <Items>
+                                <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                                <asp:MenuItem Text="Products" Value="Products"></asp:MenuItem>
+                                <asp:MenuItem Text="About Us" Value="About Us"></asp:MenuItem>
+                                <asp:MenuItem Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                                <asp:MenuItem Text="Login" Value="Login"></asp:MenuItem>
+                                <asp:MenuItem Text="Register" Value="Register"></asp:MenuItem>
+                            </Items>
+                            <StaticHoverStyle BackColor="#FF6666" BorderColor="#FF6666" BorderStyle="Outset" ForeColor="White" Height="40px" />
+                            <StaticMenuItemStyle Font-Bold="True" Font-Size="Large" ForeColor="Black" HorizontalPadding="54px" />
+                            <StaticSelectedStyle BackColor="#FF5050" BorderColor="#FF6666" BorderStyle="Inset" ForeColor="#666666" Height="40px" />
+
+                        </asp:Menu>
+                    </td>
+                </tr>
+                <tr style="width:1110px; height:310px">
+                    <td colspan="3">
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+
+                        </asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick">
+
+                                </asp:Timer>
+                                <asp:Image ID="Image3" runat="server" BackColor="White" BorderColor="Gray" Height="499px" Width="1188px" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr style="width:1100px; height:25px; background-color:black; text-align:center; color:white;">
+                    <td colspan="3">
+                        &copy: DATA BRICKS TECH. | All rights Reserved.
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </form>
+</body>
+</html>
