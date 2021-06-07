@@ -11,12 +11,25 @@ namespace ecommerce
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] != null)
+            {
+                Label4.Text = "Logged in as" + Session["username"].ToString();
+                HyperLink1.Visible = false;
+                Button1.Visible = true;
+            }
+            else
+            {
+                Label4.Text = "Please login to continue";
+                HyperLink1.Visible = true;
+                Button1.Visible = false;
+            }
         }
 
-        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-
+            Session.Abandon();
+            Response.Redirect("Default.aspx");
+            Label4.Text = "You are logged out. Please login to continue";
         }
     }
 }
