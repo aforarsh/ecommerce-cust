@@ -33,8 +33,8 @@
                                 <asp:MenuItem Text="Products" Value="Products"></asp:MenuItem>
                                 <asp:MenuItem Text="About Us" Value="About Us"></asp:MenuItem>
                                 <asp:MenuItem Text="Contact Us" Value="Contact Us"></asp:MenuItem>
-                                <asp:MenuItem Text="Login" Value="Login"></asp:MenuItem>
-                                <asp:MenuItem Text="Register" Value="Register"></asp:MenuItem>
+                                <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/login.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Register" Value="Register" NavigateUrl="~/register.aspx"></asp:MenuItem>
                             </Items>
                             <StaticHoverStyle BackColor="#FF6666" BorderColor="#FF6666" BorderStyle="Outset" ForeColor="White" Height="40px" />
                             <StaticMenuItemStyle Font-Bold="True" Font-Size="Large" ForeColor="Black" HorizontalPadding="54px" />
