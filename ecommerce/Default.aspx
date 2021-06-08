@@ -18,7 +18,7 @@
             </td>
         </tr>
     </table>
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="Product_ID" DataSourceID="SqlDataSource1" Height="293px" Width="460px"  RepeatColumns="4" RepeatDirection="Horizontal" BackColor="White">
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="Product_ID" DataSourceID="SqlDataSource1" Height="293px" Width="488px"  RepeatColumns="4" RepeatDirection="Horizontal" BackColor="White" OnItemCommand="DataList1_ItemCommand">
         <ItemTemplate>
             <table>
                 <tr>

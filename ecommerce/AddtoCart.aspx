@@ -13,7 +13,7 @@
             <br/><br/>
             <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Colonna MT" Font-Size="Large">Continue Shopping</asp:HyperLink>
             <br/><br/>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#FF6699" BorderColor="#333333" BorderWidth="5px" EmptyDataText="No products available" Font-Bold="True" Height="257px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" ShowFooter="True" Width="1100px">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#FF6699" BorderColor="#333333" BorderWidth="5px" EmptyDataText="No products available" Font-Bold="True" Height="257px" ShowFooter="True" Width="1100px">
                 <Columns>
                     <asp:BoundField DataField="sno" HeaderText="Sr No">
                     <ItemStyle HorizontalAlign="Center" />
