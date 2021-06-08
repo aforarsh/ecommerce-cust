@@ -10,7 +10,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style=" background-image: url('../img/bg.jpg');">
+<body style="background-image: url('../img/bg.jpg');">
     <form id="form1" runat="server">
         <div>
             <table style="margin:0 auto;" class="auto-style1" >

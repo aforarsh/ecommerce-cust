@@ -13,12 +13,12 @@
         <tr style="background-color:#5f98f3">
             <td colspan="2" style="text-align:right">
                 <asp:Label ID="Label4" runat="server" style="text-align:left" Font-Bold="True" Font-Italic="True" Font-Names="Bahnschrift SemiBold"></asp:Label>
-                <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Arial Rounded MT Bold" NavigateUrl="~/login.aspx">Login to continue</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Arial Rounded MT Bold" NavigateUrl="~/login.aspx">Login</asp:HyperLink>
                 <asp:Button ID="Button1" runat="server" Text="Log Out" BackColor="#FF5050" BorderColor="White" Font-Bold="True" Font-Names="Comic Sans MS" ForeColor="Aqua" Height="27px" Width="105px" OnClick="Button1_Click" />
             </td>
         </tr>
     </table>
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="Product_ID" DataSourceID="SqlDataSource1" Height="293px" Width="365px"  RepeatColumns="4" RepeatDirection="Horizontal">
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="Product_ID" DataSourceID="SqlDataSource1" Height="293px" Width="460px"  RepeatColumns="4" RepeatDirection="Horizontal" BackColor="White">
         <ItemTemplate>
             <table>
                 <tr>
