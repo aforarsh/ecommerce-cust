@@ -11,7 +11,7 @@
         }
     </style>
 </head>
-<body style="background-image: url('https://wallpaperaccess.com/full/2483946.jpg');>
+<body style="background-image: url('https://wallpaperaccess.com/full/2483946.jpg')";>
     <form id="form1" runat="server">
         <div align="center" style="margin:0 auto" class="auto-style1">
             <h2 style="text-decoration: underline overline blink; color: #5f98f3">You have the following products in your cart</h2>

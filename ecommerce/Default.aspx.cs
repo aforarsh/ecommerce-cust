@@ -36,7 +36,7 @@ namespace ecommerce
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            Session["addproduct"] = "true";
+            Session["addproduct"] = true;
             if (e.CommandName == "AddToCart")
             {
                 DropDownList list = (DropDownList)(e.Item.FindControl("DropDownList1"));
