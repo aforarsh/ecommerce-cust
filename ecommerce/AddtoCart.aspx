@@ -5,10 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>ZHR COMPUTER & SERVICES</title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 1784px;
+        }
+    </style>
 </head>
 <body style="background-image: url('https://wallpaperaccess.com/full/2483946.jpg');>
     <form id="form1" runat="server">
-        <div align="center" style="margin:0 auto">
+        <div align="center" style="margin:0 auto" class="auto-style1">
             <h2 style="text-decoration: underline overline blink; color: #5f98f3">You have the following products in your cart</h2>
             <br/><br/>
             <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Colonna MT" Font-Size="Large" NavigateUrl="Default.aspx">Continue Shopping</asp:HyperLink>
@@ -36,7 +41,7 @@
                     <asp:BoundField DataField="ptprice" HeaderText="Total Price">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:CommandField DeleteText="Remove" ShowDeleteButton="True" />
+                    <asp:CommandField DeleteText="Remove" ShowDeleteButton="True"  />
                 </Columns>
                 <FooterStyle BackColor="#6666FF" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="DarkOrchid" ForeColor="White" />
@@ -44,7 +49,7 @@
 
             <br/>
 
-            <asp:Button ID="Button1" runat="server" Text="Checkout" BackColor="Blue" BorderColor="#066666" BorderStyle="Ridge" Font-Bold="True" Font-Size="Large" Height="46px" Width="135px" OnClick="Button1_Click" Font-Names="Comic Sans MS" />
+            <asp:Button ID="Button1" runat="server" Text="Checkout" BackColor="Blue" BorderColor="#066666" BorderStyle="Ridge" Font-Bold="True" Font-Size="Large" Height="46px" Width="135px" OnClick="Button1_Click"/>
 
         </div>
     </form>

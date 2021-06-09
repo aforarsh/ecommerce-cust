@@ -62,7 +62,7 @@ namespace ecommerce
                         dt.Rows.Add(dr);
                         GridView1.DataSource = dt;
                         GridView1.DataBind();
-                        Session["buyitems"] = dt;
+                        Session["Buyitems"] = dt;
                         Button1.Enabled = true;
 
                         GridView1.FooterRow.Cells[5].Text = "Total Amount";
@@ -76,7 +76,7 @@ namespace ecommerce
                         sr = dt.Rows.Count;
 
                         dr = dt.NewRow();
-                        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP/SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
+                        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
 
                         SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM tb_product WHERE Product_ID=" + Request.QueryString["id"], conn);
                         DataSet ds = new DataSet();
@@ -89,7 +89,7 @@ namespace ecommerce
                         dr["pprice"] = ds.Tables[0].Rows[0]["Product_Price"].ToString();
                         dr["pqty"] = Request.QueryString["quantity"];
 
-                        int price = Convert.ToInt32(ds.Tables[0].Rows[0]["pprice"].ToString());
+                        int price = Convert.ToInt32(ds.Tables[0].Rows[0]["Product_Price"].ToString());
                         int qty = Convert.ToInt16(Request.QueryString["quantity"].ToString());
                         int TotalPrice = price * qty;
                         dr["ptprice"] = TotalPrice;
@@ -97,7 +97,7 @@ namespace ecommerce
                         dt.Rows.Add(dr);
                         GridView1.DataSource = dt;
                         GridView1.DataBind();
-                        Session["buyitems"] = dt;
+                        Session["Buyitems"] = dt;
                         Button1.Enabled = true;
 
                         GridView1.FooterRow.Cells[5].Text = "Total Amount";
@@ -119,7 +119,7 @@ namespace ecommerce
             }
 
             string OrderDate = DateTime.Now.ToShortDateString();
-            Session["orderdate"] = OrderDate;
+            Session["Orderdate"] = OrderDate;
             orderid();
         }
 
@@ -138,6 +138,7 @@ namespace ecommerce
             Session["Orderid"] = orderid;
         }
 
+        //Final total price
         public int grandtotal()
         {
             DataTable dt = new DataTable();
@@ -153,7 +154,6 @@ namespace ecommerce
 
             return totalprice;
         }
-
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             DataTable dt = new DataTable();
@@ -171,7 +171,7 @@ namespace ecommerce
                 dtdata = sr.ToString();
                 sr1 = Convert.ToInt32(qdata);
 
-                if(sr == sr1)
+                if (sr == sr1)
                 {
                     dt.Rows[i].Delete();
                     dt.AcceptChanges();
@@ -196,11 +196,11 @@ namespace ecommerce
             DataTable dt = new DataTable();
             dt = (DataTable)Session["buyitems"];
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
-            { 
+            {
                 SqlConnection scon = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
                 scon.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO tb_Order(Order_ID,sno,Product_ID,Product_Name, Product_Price, Product_Qty,Order_Date) VALUES('"+ Session["Order_ID"] + ",'"
-                    + dt.Rows[i]["sno"] + ",'" + dt.Rows[i]["pid"] + ",'" + dt.Rows[i]["pname"] + ",'" + dt.Rows[i]["pprice"] + ",'" + dt.Rows[i]["pqty"] + ",'" + Session["Order_Date"]+"')",scon);
+                SqlCommand cmd = new SqlCommand("INSERT INTO tb_Order(Order_ID,sno,Product_ID,Product_Name,Product_Price,Product_Qty,Order_Date) VALUES('" + Session["Orderid"] + ",'"
+                    + dt.Rows[i]["sno"] + "," + dt.Rows[i]["pid"] + ",'" + dt.Rows[i]["pname"] + "'," + dt.Rows[i]["pprice"] + ",'" + dt.Rows[i]["pqty"] + ",'" + Session["Orderdate"] + "')");
 
                 cmd.ExecuteNonQuery();
                 scon.Close();

@@ -215,7 +215,6 @@ C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\Newtonsoft.Json.xml
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\Antlr3.Runtime.pdb
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csprojAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csproj.CoreCompileInputs.cache
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.dll
