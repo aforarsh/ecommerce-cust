@@ -6,14 +6,14 @@
 <head runat="server">
     <title>ZHR COMPUTER & SERVICES</title>
 </head>
-<body>
+<body style="background-image: url('https://wallpaperaccess.com/full/2483946.jpg');>
     <form id="form1" runat="server">
         <div align="center" style="margin:0 auto">
             <h2 style="text-decoration: underline overline blink; color: #5f98f3">You have the following products in your cart</h2>
             <br/><br/>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Colonna MT" Font-Size="Large">Continue Shopping</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Colonna MT" Font-Size="Large" NavigateUrl="Default.aspx">Continue Shopping</asp:HyperLink>
             <br/><br/>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#FF6699" BorderColor="#333333" BorderWidth="5px" EmptyDataText="No products available" Font-Bold="True" Height="257px" ShowFooter="True" Width="1100px">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#333333" BorderWidth="5px" EmptyDataText="No products available" Font-Bold="True" Height="257px" ShowFooter="True" Width="1100px" OnRowDeleting="GridView1_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="sno" HeaderText="Sr No">
                     <ItemStyle HorizontalAlign="Center" />
@@ -44,7 +44,7 @@
 
             <br/>
 
-            <asp:Button ID="Button1" runat="server" Text="Button" BackColor="#FF6699" BorderColor="#066666" BorderStyle="Ridge" Font-Bold="True" Font-Size="Large" Height="46px" Width="135px" />
+            <asp:Button ID="Button1" runat="server" Text="Checkout" BackColor="Blue" BorderColor="#066666" BorderStyle="Ridge" Font-Bold="True" Font-Size="Large" Height="46px" Width="135px" OnClick="Button1_Click" Font-Names="Comic Sans MS" />
 
         </div>
     </form>

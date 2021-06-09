@@ -18,7 +18,7 @@ namespace ecommerce
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-LTLQC7F\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO dbo.tb_registration"+ "(First_Name,Last_Name,Email_ID,Gender,Address,Phone_No,Password) VALUES (@First_Name,@Last_Name,@Email_ID,@Gender,@Address,@Phone_No,@Password)",con);
             cmd.Parameters.AddWithValue("@First_Name", TextBox1.Text);
