@@ -200,8 +200,8 @@ namespace ecommerce
             {
                 SqlConnection scon = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
                 scon.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO tb_Order(Order_ID,sno,Product_ID,Product_Name,Product_Price,Product_Qty,Order_Date) VALUES('" + Session["Orderid"] + ",'"
-                    + dt.Rows[i]["sno"] + "," + dt.Rows[i]["pid"] + ",'" + dt.Rows[i]["pname"] + "'," + dt.Rows[i]["pprice"] + ",'" + dt.Rows[i]["pqty"] + ",'" + Session["Orderdate"] + "')",scon);
+                SqlCommand cmd = new SqlCommand("INSERT INTO tb_Order(Order_ID,sno,Product_ID,Product_Name,Product_Price,Product_Qty,Order_Date) VALUES('" + Session["Orderid"] + "','"
+                    + dt.Rows[i]["sno"] + "','" + dt.Rows[i]["pid"] + "','" + dt.Rows[i]["pname"] + "','" + dt.Rows[i]["pprice"] + "','" + dt.Rows[i]["pqty"] + "','" + Session["Orderdate"] + "')",scon);
 
                 cmd.ExecuteNonQuery();
                 scon.Close();
