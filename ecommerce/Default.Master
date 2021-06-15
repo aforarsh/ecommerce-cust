@@ -14,7 +14,7 @@
     <form id="form1" runat="server">
         <div>
             <table style="margin:0 auto;" class="auto-style1" >
-                <tr style="width:1100px; height:50px; border-color:#7FFFD4; background-color:White; ">
+                <tr style="width:1050px; height:50px; border-color:#7FFFD4; background-color:White; ">
                     <td style="width: 120px">
                         <asp:Image ID="Image1" runat="server" Height="151px" ImageUrl="~/img/log.jpg" Width="194px" /></td>
                     <td style="width: 700px" align="center">
@@ -22,8 +22,11 @@
                         <br />
                         <b>One Stop Computer Accessories</b>
                     </td>
-                    <td>
-                        <asp:Image ID="Image2" runat="server" Height="151px" ImageUrl="~/img/log.jpg" Width="194px" /></td>
+                    <td style="width:100px; text-align:center">
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="50px" Width="50px" ImageUrl="~/img/cart.png" CausesValidation="False" PostBackUrl="AddtoCart.aspx"/>
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" Width="50px" ImageUrl="~/img/track.jpg" CausesValidation="False" PostBackUrl="http://trackparcel.com/"/>
+                        <br />
+                    </td>
                 </tr>
                 <tr style="background-color:#B8860B">
                     <td colspan="3";>

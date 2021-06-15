@@ -16,7 +16,8 @@
         <div align="center" style="margin:0 auto" class="auto-style1">
             <h2 style="text-decoration: underline overline blink; color: #5f98f3">You have the following products in your cart</h2>
             <br/><br/>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Colonna MT" Font-Size="Large" NavigateUrl="Default.aspx">Continue Shopping</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" Font-Names="Colonna MT" Font-Size="Large" NavigateUrl="Default.aspx">Continue Shopping</asp:HyperLink><br/>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Clear Cart</asp:LinkButton>
             <br/><br/>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#333333" BorderWidth="5px" EmptyDataText="No products available" Font-Bold="True" Height="257px" ShowFooter="True" Width="1100px" OnRowDeleting="GridView1_RowDeleting">
                 <Columns>

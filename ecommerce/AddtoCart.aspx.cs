@@ -11,17 +11,15 @@ namespace ecommerce
 {
     public partial class AddtoCart : System.Web.UI.Page
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Session["buyitems"] == null)
+                if (Session["username"] == null)
                 {
-                    Button1.Enabled = false;
-                }
-                else
-                {
-                    Button1.Enabled = true;
+                    Response.Redirect("login.aspx");
                 }
 
                 //Adding product to Gridview
@@ -32,16 +30,17 @@ namespace ecommerce
                 dt.Columns.Add("pid");
                 dt.Columns.Add("pname");
                 dt.Columns.Add("pimage");
+                dt.Columns.Add("pdesc");
                 dt.Columns.Add("pprice");
                 dt.Columns.Add("pqty");
                 dt.Columns.Add("ptprice");
 
                 if (Request.QueryString["id"] != null)
                 {
-                    if (Session["Buyitems"] == null)
+                    if (Session["buyitems"] == null)
                     {
                         dr = dt.NewRow();
-                        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
+                        
 
                         SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM tb_product WHERE Product_ID=" + Request.QueryString["id"], conn);
                         DataSet ds = new DataSet();
@@ -51,6 +50,7 @@ namespace ecommerce
                         dr["pid"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
                         dr["pname"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                         dr["pimage"] = ds.Tables[0].Rows[0]["Product_Img"].ToString();
+                        dr["pdesc"] = ds.Tables[0].Rows[0]["Product_Desc"].ToString();
                         dr["pprice"] = ds.Tables[0].Rows[0]["Product_Price"].ToString();
                         dr["pqty"] = Request.QueryString["quantity"];
 
@@ -60,13 +60,20 @@ namespace ecommerce
                         dr["ptprice"] = TotalPrice;
 
                         dt.Rows.Add(dr);
+
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("INSERT INTO tb_cart (sno, Product_ID, Product_Name, Product_img, Product_Desc, Product_Price, Product_Qty, Email_ID)  VALUES('" + dr["sno"] + "','" + dr["pid"] + "','" + dr["pname"] + "','" + dr["pimage"] + "','" + dr["pdesc"] + "','" + dr["pprice"] + "','" + dr["pqty"] + "','"
+                            + Session["username"].ToString() + "')", conn);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
                         GridView1.DataSource = dt;
                         GridView1.DataBind();
                         Session["Buyitems"] = dt;
                         Button1.Enabled = true;
 
-                        GridView1.FooterRow.Cells[5].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[6].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[6].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[7].Text = grandtotal().ToString();
                         Response.Redirect("AddtoCart.aspx");
                     }
                     else
@@ -86,6 +93,7 @@ namespace ecommerce
                         dr["pid"] = ds.Tables[0].Rows[0]["Product_ID"].ToString();
                         dr["pname"] = ds.Tables[0].Rows[0]["Product_Name"].ToString();
                         dr["pimage"] = ds.Tables[0].Rows[0]["Product_Img"].ToString();
+                        dr["pdesc"] = ds.Tables[0].Rows[0]["Product_Desc"].ToString();
                         dr["pprice"] = ds.Tables[0].Rows[0]["Product_Price"].ToString();
                         dr["pqty"] = Request.QueryString["quantity"];
 
@@ -95,13 +103,20 @@ namespace ecommerce
                         dr["ptprice"] = TotalPrice;
 
                         dt.Rows.Add(dr);
+
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("INSERT INTO tb_cart (sno, Product_ID, Product_Name, Product_img, Product_Desc, Product_Price, Product_Qty, Email_ID) VALUES('" + dr["sno"] + "','" + dr["pid"] + "','" + dr["pname"] + "','" + dr["pimage"] + "','"+ dr["pdesc"] + "','" + dr["pprice"] + "','" + dr["pqty"] + "','" 
+                            + Session["username"].ToString() + "')", conn);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
                         GridView1.DataSource = dt;
                         GridView1.DataBind();
                         Session["Buyitems"] = dt;
                         Button1.Enabled = true;
 
-                        GridView1.FooterRow.Cells[5].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[6].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[6].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[7].Text = grandtotal().ToString();
                         Response.Redirect("AddtoCart.aspx");
                     }
                 }
@@ -171,11 +186,16 @@ namespace ecommerce
                 qdata = cell.Text;
                 dtdata = sr.ToString();
                 sr1 = Convert.ToInt32(qdata);
+                TableCell prID = GridView1.Rows[e.RowIndex].Cells[1];
 
                 if (sr == sr1)
                 {
                     dt.Rows[i].Delete();
                     dt.AcceptChanges();
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE top (1) FROM tb_cart WHERE Product_ID = '" + prID.Text + "' AND CONVERT(VARCHAR,Email_ID)='" + Session["username"] + "' ", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                     // Item is deleted from shopping cart
                     break;
                 }
@@ -223,6 +243,20 @@ namespace ecommerce
                     Response.Redirect("PlaceOrder.aspx");
                 }
             }
+        }
+
+        public void clearCart()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM tb_cart WHERE CONVERT(VARCHAR,Email_ID)='" + Session["username"] + "' ", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect("AddtoCart.aspx");
+        }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session["buyitems"] = null;
+            clearCart();
         }
     }
 }
