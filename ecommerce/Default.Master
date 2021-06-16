@@ -24,7 +24,7 @@
                     </td>
                     <td style="width:100px; text-align:center">
                         <asp:ImageButton ID="ImageButton1" runat="server" Height="50px" Width="50px" ImageUrl="~/img/cart.png" CausesValidation="False" PostBackUrl="AddtoCart.aspx"/>
-                        <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" Width="50px" ImageUrl="~/img/track.jpg" CausesValidation="False" PostBackUrl="http://trackparcel.com/"/>
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" Width="50px" ImageUrl="~/img/track.jpg" CausesValidation="False" PostBackUrl="https://www.tracking.my/"/>
                         <br />
                     </td>
                 </tr>
