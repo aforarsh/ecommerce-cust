@@ -33,6 +33,9 @@
                     <asp:BoundField DataField="pname" HeaderText="Product Name">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
+                    <asp:BoundField DataField="pdesc" HeaderText="Product Description">
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="pprice" HeaderText="Price">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>

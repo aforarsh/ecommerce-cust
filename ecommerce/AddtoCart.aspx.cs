@@ -133,8 +133,18 @@ namespace ecommerce
                 }
             }
 
-            string OrderDate = DateTime.Now.ToShortDateString();
-            Session["Orderdate"] = OrderDate;
+            if (GridView1.Rows.Count.ToString() == "0")
+            {
+                LinkButton1.Enabled = false;
+                LinkButton1.ForeColor = System.Drawing.Color.White;
+                Button1.Enabled = false;
+                Button1.Text = "Oops";
+            }
+            else
+            {
+                LinkButton1.Enabled = true;
+                Button1.Enabled = true;
+            }
             orderid();
         }
 
