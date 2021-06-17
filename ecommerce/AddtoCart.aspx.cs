@@ -127,8 +127,8 @@ namespace ecommerce
                     GridView1.DataBind();
                     if (GridView1.Rows.Count > 0)
                     {
-                        GridView1.FooterRow.Cells[5].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[6].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[6].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[7].Text = grandtotal().ToString();
                     }
                 }
             }
@@ -173,7 +173,7 @@ namespace ecommerce
             int totalprice = 0;
             while (i < nrow)
             {
-                totalprice = totalprice + Convert.ToInt32(dt.Rows[i]["pprice"].ToString());
+                totalprice = totalprice + Convert.ToInt32(dt.Rows[i]["ptprice"].ToString());
                 i = i + 1;
             }
 
@@ -224,35 +224,38 @@ namespace ecommerce
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            dt = (DataTable)Session["buyitems"];
+            bool isTrue = true;
+            DataTable dt = (DataTable)Session["buyitems"];
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
-                SqlConnection scon = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
-                scon.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO tb_Order(Order_ID,sno,Product_ID,Product_Name,Product_Price,Product_Qty,Order_Date) VALUES('" + Session["Orderid"] + "','"
-                    + dt.Rows[i]["sno"] + "','" + dt.Rows[i]["pid"] + "','" + dt.Rows[i]["pname"] + "','" + dt.Rows[i]["pprice"] + "','" + dt.Rows[i]["pqty"] + "','" + Session["Orderdate"] + "')",scon);
 
-                cmd.ExecuteNonQuery();
-                scon.Close();
+                int pId = Convert.ToInt16(dt.Rows[i]["pid"]);
+                int pQty = Convert.ToInt16(dt.Rows[i]["pqty"]);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT Product_qty, Product_Name from tb_product WHERE Product_ID='" +pId + "' ", conn);
+                DataTable dtable = new DataTable();
+                sda.Fill(dtable);
+                int qty = Convert.ToInt16(dtable.Rows[0][0]);
+                if (qty == 0)
+                {
+                    string pName = dtable.Rows[0][1].ToString();
+                    string msg = "" + pName + "is out of stock";
+                    Response.Write("<script>alert('" + msg + "');</script>");
+                    isTrue = false;
+                }
             }
 
-            //if session is null
-            if (Session["username"] == null)
+            if (GridView1.Rows.Count.ToString() == "0")
             {
-                Response.Redirect("login.aspx");
+                Response.Write("<script>alert('Your cart is empty. You cannot place an order');</script>");
             }
             else
             {
-                if (GridView1.Rows.Count.ToString() == "0")
-                {
-                    Response.Write("<script>alert('Your cart is empty');</script>");
-                }
-                else
+                if (isTrue == true)
                 {
                     Response.Redirect("PlaceOrder.aspx");
                 }
             }
+
         }
 
         public void clearCart()

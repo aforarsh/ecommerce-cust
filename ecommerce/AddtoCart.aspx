@@ -36,10 +36,10 @@
                     <asp:BoundField DataField="pdesc" HeaderText="Product Description">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="pprice" HeaderText="Price">
+                    <asp:BoundField DataField="pqty" HeaderText="Qty">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="pqty" HeaderText="Qty">
+                    <asp:BoundField DataField="pprice" HeaderText="Price">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField DataField="ptprice" HeaderText="Total Price">
