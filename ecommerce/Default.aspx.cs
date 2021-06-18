@@ -11,6 +11,8 @@ namespace ecommerce
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["addproduct"] = "false";
+
             if (Session["username"] != null)
             {
                 Label4.Text = "Logged in as" + Session["username"].ToString();
@@ -30,6 +32,17 @@ namespace ecommerce
             Session.Abandon();
             Response.Redirect("Default.aspx");
             Label4.Text = "You are logged out. Please login to continue";
+        }
+
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            Session["addproduct"] = true;
+            if (e.CommandName == "AddToCart")
+            {
+                DropDownList list = (DropDownList)(e.Item.FindControl("DropDownList1"));
+                Response.Redirect("AddtoCart.aspx?id=" + e.CommandArgument.ToString() + "&quantity=" + list.SelectedItem.ToString());
+            }
+
         }
     }
 }
