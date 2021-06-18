@@ -11,7 +11,7 @@ namespace ecommerce
 {
     public partial class OrderStatus : System.Web.UI.Page
     {
-        string str = "Data Source=DESKTOP-GNG1HEH\\SQLEXPRESS;Initial Catalog=ecommerce; Integrated Security=True;";
+        string str = @"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True;";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -106,9 +106,9 @@ namespace ecommerce
             {
                 SqlConnection con = new SqlConnection(str);
                 con.Open();
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_Quantity AS Product_Quantity, Order_Date AS Order_Date FROM Order_Details WHERE Order_Date='" +TextBox1.Text + "' AND Order_Status!='Completed'", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_qty AS Product_qty, Order_Date AS Order_Date FROM tb_Order WHERE Order_Date='" +TextBox1.Text + "' AND Order_Status!='Completed'", con);
                 DataSet ds = new DataSet();
-                sda.Fill(ds, "Order_Details");
+                sda.Fill(ds, "tb_Order");
                 if (ds.Tables[0].Rows.Count == 0)
                 {
                     Response.Write("<script>alert('No Record To Display')</script>");
@@ -172,9 +172,9 @@ namespace ecommerce
         {
             SqlConnection con = new SqlConnection(str);
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_Quantity AS Product_Quantity, Order_Date AS Order_Date, Order_Status AS Status FROM Order_Details", con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_qty AS Product_qty, Order_Date AS Order_Date, Order_Status AS Status FROM tb_Order", con);
             DataSet ds = new DataSet();
-            sda.Fill(ds, "Order_Details");
+            sda.Fill(ds, "tb_Order");
             GridView1.DataSource = ds;
             GridView1.DataBind();
             GridView1.Columns[0].Visible = false;

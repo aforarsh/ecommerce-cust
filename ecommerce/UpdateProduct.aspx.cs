@@ -12,7 +12,7 @@ namespace ecommerce
 {
     public partial class UpdateProduct : System.Web.UI.Page
     {
-        string str = "Data Source=DESKTOP-GNG1HEH\\SQLEXPRESS;Initial Catalog=ecommerce; Integrated Security=True;";
+        string str = @"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True;";
         //int ProductId;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace ecommerce
         public void ShowProduct()
         {
             SqlConnection conn = new SqlConnection(str);
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tb_product1", conn);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tb_product", conn);
 
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -80,7 +80,7 @@ namespace ecommerce
                 int Product_ID = GridView1.EditIndex;
                 SqlConnection con = new SqlConnection(str);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE tb_product1 SET Product_Name=@1, Product_Desc=@2, Product_Price=@3, Product_Qty=@4 WHERE Product_ID=@5 ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE tb_product SET Product_Name=@1, Product_Desc=@2, Product_Price=@3, Product_qty=@4 WHERE Product_ID=@5 ", con);
                 cmd.Parameters.AddWithValue("@1", (GridView1.Rows[e.RowIndex].FindControl("TextBox1") as TextBox).Text.Trim());
                 cmd.Parameters.AddWithValue("@2", (GridView1.Rows[e.RowIndex].FindControl("TextBox2") as TextBox).Text.Trim());
                 cmd.Parameters.AddWithValue("@3", (GridView1.Rows[e.RowIndex].FindControl("TextBox3") as TextBox).Text.Trim());
@@ -105,7 +105,7 @@ namespace ecommerce
             else
             {
                 SqlConnection con = new SqlConnection(str);
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tb_product1 WHERE Product_Category='" + Category_Name + "' ", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tb_product WHERE Product_Category='" + Category_Name + "' ", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 GridView1.DataSource = dt;
@@ -116,11 +116,11 @@ namespace ecommerce
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //int Product_ID = GridView1.EditIndex;
-            int Product_ID = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);
+            int Product_ID = GridView1.EditIndex;
+            /*int Product_ID = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value);*/
             SqlConnection con1 = new SqlConnection(str);
             con1.Open();
-            SqlCommand cmd1 = new SqlCommand("DELETE FROM tb_product1 WHERE Product_ID=@1", con1);
+            SqlCommand cmd1 = new SqlCommand("DELETE FROM tb_product WHERE Product_ID=@1", con1);
             cmd1.Parameters.AddWithValue("@1", Product_ID);
             cmd1.ExecuteNonQuery();
             con1.Close();

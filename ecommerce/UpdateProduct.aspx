@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="UpdateProduct.aspx.cs" Inherits="ecommerce.UpdateProduct" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div align="center" class="navbar" style="height: auto">
         <br />
     Sort By:&nbsp;
     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Category_Name" DataValueField="Category_Name" Height="42px" Width="125px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AppendDataBoundItems="True">
         <asp:ListItem>Select Category</asp:ListItem>
         </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ecommerceConnectionString %>" SelectCommand="SELECT [Category_Name] FROM [tb_category]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ecommerceConnectionString3 %>" SelectCommand="SELECT [Category_Name] FROM [tb_category]"></asp:SqlDataSource>
         <hr />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" EmptyDataText="No Product to Display" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowDeleting="GridView1_RowDeleting">
             <Columns>
@@ -38,7 +38,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
-                        <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("Product_Image") %>' Height="100px" Width="92px" />
+                        <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("Product_Img") %>' Height="100px" Width="92px" />
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
@@ -53,10 +53,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Quantity">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Eval("Product_Qty") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Eval("Product_qty") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Product_Qty") %>'></asp:Label>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Product_qty") %>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
