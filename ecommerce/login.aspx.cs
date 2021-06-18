@@ -25,9 +25,10 @@ namespace ecommerce
             
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            if (TextBox1.Text == "Admin" & TextBox2.Text == "Admin")
+            if (TextBox1.Text == "Admin@admin.com" & TextBox2.Text == "Admin")
             {
                 Label1.Text = "Welcome back Admin";
+                Response.Redirect("AdminHome.aspx");
                 Label1.ForeColor = System.Drawing.Color.DarkGreen;
                 LinkButton1.Visible = false;
                 HyperLink1.Visible = true;

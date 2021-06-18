@@ -11,7 +11,7 @@ namespace ecommerce
 {
     public partial class AddCategory : System.Web.UI.Page
     {
-        string str = "Data Source=DESKTOP-GNG1HEH\\SQLEXPRESS;Initial Catalog=ecommerce; Integrated Security=True;";
+        string str = @"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True;";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
