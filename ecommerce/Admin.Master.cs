@@ -34,5 +34,12 @@ namespace ecommerce
 
             Response.Redirect("OrderStatus.aspx");
         }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Default.aspx");
+        }
+        
     }
 }
