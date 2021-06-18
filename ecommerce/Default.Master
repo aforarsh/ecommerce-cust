@@ -35,7 +35,7 @@
                                 <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
                                 <asp:MenuItem Text="Products" Value="Products"></asp:MenuItem>
                                 <asp:MenuItem Text="About Us" Value="About Us"></asp:MenuItem>
-                                <asp:MenuItem Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                                <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/quotation.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Login" Value="Login" NavigateUrl="~/login.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Register" Value="Register" NavigateUrl="~/register.aspx"></asp:MenuItem>
                             </Items>
