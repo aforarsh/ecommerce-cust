@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Default.Master" />
     <Content Include="Admin.Master" />
+    <Content Include="Payment.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Year.xml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -265,6 +266,13 @@
     </Compile>
     <Compile Include="OrderStatus.aspx.designer.cs">
       <DependentUpon>OrderStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaymentAdmin.aspx.cs">
       <DependentUpon>PaymentAdmin.aspx</DependentUpon>
