@@ -253,7 +253,7 @@ namespace ecommerce
                 }
                 else
                 {
-                    Response.Redirect("PlaceOrder.aspx");
+                    Response.Redirect("PlaceOrder.aspx?oid" + Session["Orderid"]);
                 }
             }
 
