@@ -189,6 +189,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Default.Master" />
     <Content Include="Admin.Master" />
+<<<<<<< HEAD
     <Content Include="Images\admin.jpg" />
     <Content Include="Images\calendar-icon.png" />
     <Content Include="Images\mini usb speaker.jpg" />
@@ -351,6 +352,8 @@
     <Content Include="quotation.aspx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+=======
+>>>>>>> parent of 6a30be5 (payment)
     <Content Include="WebForm1.aspx" />
     <Content Include="Year.xml" />
     <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
