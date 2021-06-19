@@ -212,3 +212,6 @@ C:\Users\Admin\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csp
 C:\Users\Admin\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.dll
 C:\Users\Admin\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.pdb
+C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\quotation.aspx
+C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\quotation.aspx.cs
+C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\bin\quotation.aspx.designer.cs
