@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td align="center" width="50%" colspan="2">
-                        <asp:Button ID="Button1" runat="server" Text="Submit" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="36px" OnClick="Button1_Click" Width="88px" />
+                        <asp:Button ID="Button1" runat="server" Text="Submit" Font-Bold="True" Font-Size="Medium" Height="36px" OnClick="Button1_Click" Width="88px" />
                     </td>
                 </tr>
                 <tr>
