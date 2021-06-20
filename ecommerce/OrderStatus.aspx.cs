@@ -44,24 +44,6 @@ namespace ecommerce
             }
         }
 
-        //protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int year = int.Parse(DropDownList1.SelectedValue);
-        //    int month = int.Parse(DropDownList2.SelectedValue);
-
-        //    Calendar1.VisibleDate = new DateTime(year, month, 1);
-        //    Calendar1.SelectedDate = new DateTime(year, month, 1);
-        //}
-
-        //protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int year = int.Parse(DropDownList1.SelectedValue);
-        //    int month = int.Parse(DropDownList2.SelectedValue);
-
-        //    Calendar1.VisibleDate = new DateTime(year, month, 1);
-        //    Calendar1.SelectedDate = new DateTime(year, month, 1);
-        //}
-
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             if (Calendar1.Visible)
@@ -100,15 +82,15 @@ namespace ecommerce
         {
             if (TextBox1.Text == "")
             {
-                Response.Write("<script>alert('Please Select Data')</script>");
+                Response.Write("<script>alert('Please Select Date')</script>");
             }
             else
             {
                 SqlConnection con = new SqlConnection(str);
                 con.Open();
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_Quantity AS Product_Quantity, Order_Date AS Order_Date FROM Order_Details WHERE Order_Date='" +TextBox1.Text + "' AND Order_Status!='Completed'", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_Qty AS Product_Qty, Order_Date AS Order_Date FROM tb_Order WHERE Order_Date='" +TextBox1.Text + "' AND Order_Status!='Completed'", con);
                 DataSet ds = new DataSet();
-                sda.Fill(ds, "Order_Details");
+                sda.Fill(ds, "tb_Order");
                 if (ds.Tables[0].Rows.Count == 0)
                 {
                     Response.Write("<script>alert('No Record To Display')</script>");
@@ -153,7 +135,7 @@ namespace ecommerce
 
                 SqlConnection con = new SqlConnection(str);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Order_Details SET Order_Status=@a WHERE Order_ID=@b", con);
+                SqlCommand cmd = new SqlCommand("UPDATE tb_Order SET Order_Status=@a WHERE Order_ID=@b", con);
                 cmd.Parameters.AddWithValue("@a", Order_Status);
                 cmd.Parameters.AddWithValue("@b", Order_ID);
                 cmd.ExecuteNonQuery();
@@ -172,9 +154,9 @@ namespace ecommerce
         {
             SqlConnection con = new SqlConnection(str);
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_Quantity AS Product_Quantity, Order_Date AS Order_Date, Order_Status AS Status FROM Order_Details", con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT Order_ID AS Order_ID, Product_Name AS Product_Name, Product_Price AS Product_Price, Product_Qty AS Product_Qty, Order_Date AS Order_Date, Order_Status AS Status FROM tb_Order", con);
             DataSet ds = new DataSet();
-            sda.Fill(ds, "Order_Details");
+            sda.Fill(ds, "tb_Order");
             GridView1.DataSource = ds;
             GridView1.DataBind();
             GridView1.Columns[0].Visible = false;

@@ -80,7 +80,6 @@
             <TodayDayStyle BackColor="#999999" ForeColor="White" />
         </asp:Calendar>
         <br />
-        <br />
         <asp:Button ID="Button1" runat="server" Text="Click" CssClass="button" Font-Bold="True" Height="39px" Width="72px" OnClick="Button1_Click" />
         <br />
         <br />

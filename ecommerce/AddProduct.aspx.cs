@@ -30,7 +30,7 @@ namespace ecommerce
                 string filepath = "Images/" + imageUpload.FileName;
                 imageUpload.PostedFile.SaveAs(Server.MapPath("~/Images/") + filename);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO tb_product1 VALUES('" + txtName.Text + "', '" + txtDesc.Text + "', '" + filepath + "', '" + txtPrice.Text + "', '" + txtQuantity.Text + "', '" + DropDownList1.SelectedItem.Text + "' )", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO tb_product VALUES('" + txtName.Text + "', '" + txtDesc.Text + "', '" + filepath + "', '" + txtPrice.Text + "', '" + txtQuantity.Text + "', '" + DropDownList1.SelectedItem.Text + "' )", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Product Added Successfully');</script>");

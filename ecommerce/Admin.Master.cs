@@ -9,7 +9,7 @@ namespace ecommerce
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-        protected void Page_Load2(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
 
         }
@@ -33,6 +33,11 @@ namespace ecommerce
         {
 
             Response.Redirect("OrderStatus.aspx");
+        }
+
+        protected void PaymentAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PaymentAdmin.aspx");
         }
     }
 }
