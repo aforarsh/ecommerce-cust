@@ -226,3 +226,4 @@ C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csproj
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.dll
 C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.pdb
+C:\Users\HP\Documents\GitHub\ecommerce-cust\ecommerce\obj\Debug\ecommerce.csprojAssemblyReference.cache
