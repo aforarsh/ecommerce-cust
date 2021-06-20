@@ -24,6 +24,10 @@ namespace ecommerce
                 string filename = FileUpload1.PostedFile.FileName;
                 string filepath = "receipts/" + FileUpload1.FileName;
                 FileUpload1.PostedFile.SaveAs(Server.MapPath("~/receipts/") + filename);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO tb_Order(Payment_Prove) VALUES ('" + filename + "')",con);
+                cmd.ExecuteNonQuery();
+                con.Close();
                 Response.Write("<script>alert('Product Added Successfully');</script>");
                 Response.Redirect("Default.aspx");
             }
