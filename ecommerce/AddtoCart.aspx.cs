@@ -11,7 +11,7 @@ namespace ecommerce
 {
     public partial class AddtoCart : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-LTLQC7F\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {

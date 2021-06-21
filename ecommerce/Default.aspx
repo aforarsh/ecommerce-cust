@@ -59,6 +59,6 @@
             <br />
         </ItemTemplate>
     </asp:DataList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ecommerceConnectionString3 %>" SelectCommand="SELECT [Product_ID], [Product_Name], [Product_Price], [Product_Img] FROM [tb_product]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ecommerceConnectionString4 %>" SelectCommand="SELECT [Product_ID], [Product_Name], [Product_Price], [Product_Img] FROM [tb_product]"></asp:SqlDataSource>
     
 </asp:Content>

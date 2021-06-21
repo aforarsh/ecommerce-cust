@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -195,6 +199,7 @@
     <Content Include="Images\mouse.jpg" />
     <Content Include="Images\mouse2.png" />
     <Content Include="Images\usb.jpg" />
+    <Content Include="itextsharp.dll" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
     <Content Include="packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net40\AspNet.ScriptManager.bootstrap.dll" />
@@ -348,6 +353,7 @@
     <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
     <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="PdfGenerate.aspx" />
     <Content Include="quotation.aspx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -591,6 +597,13 @@
     </Compile>
     <Compile Include="PaymentAdmin.aspx.designer.cs">
       <DependentUpon>PaymentAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfGenerate.aspx.cs">
+      <DependentUpon>PdfGenerate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfGenerate.aspx.designer.cs">
+      <DependentUpon>PdfGenerate.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlaceOrder.aspx.cs">
       <DependentUpon>PlaceOrder.aspx</DependentUpon>

@@ -25,7 +25,7 @@ namespace ecommerce
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-LTLQC7F\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tb_registration WHERE CONVERT(VARCHAR,Email_ID)='" + TextBox1.Text + "' and Password='" + TextBox2.Text + "'", con);
             
             DataTable dt = new DataTable();
@@ -69,7 +69,7 @@ namespace ecommerce
             dt.Columns.Add("pqty");
             dt.Columns.Add("ptprice");
 
-            String mycon = @"Data Source=LAPTOP-20VP0PUP\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True";
+            String mycon = @"Data Source=DESKTOP-LTLQC7F\SQLEXPRESS;Initial Catalog=ecommerce;Integrated Security=True";
             SqlConnection scon = new SqlConnection(mycon);
 
             String myquery = "Select * FROM tb_cart WHERE CONVERT(VARCHAR,Email_ID)='" + Session["username"].ToString() + "'";
